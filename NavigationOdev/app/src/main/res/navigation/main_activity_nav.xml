@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/fragmentA"
+        android:name="com.example.navigationodev.Fragments.FragmentA"
+        android:label="fragment_a"
+        tools:layout="@layout/fragment_a" >
+        <action
+            android:id="@+id/A_to_B"
+            app:destination="@id/fragmentB" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigationodev.Fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/Main_to_A"
+            app:destination="@id/fragmentA" />
+        <action
+            android:id="@+id/Main_to_X"
+            app:destination="@id/fragmentX" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentY"
+        android:name="com.example.navigationodev.Fragments.FragmentY"
+        android:label="fragment_y"
+        tools:layout="@layout/fragment_y" >
+        <action
+            android:id="@+id/Y_to_Main"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/fragmentX"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentB"
+        android:name="com.example.navigationodev.Fragments.FragmentB"
+        android:label="fragment_b"
+        tools:layout="@layout/fragment_b" >
+        <action
+            android:id="@+id/B_to_Y"
+            app:destination="@id/fragmentY" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentX"
+        android:name="com.example.navigationodev.Fragments.FragmentX"
+        android:label="fragment_x"
+        tools:layout="@layout/fragment_x" >
+        <action
+            android:id="@+id/X_to_Y"
+            app:destination="@id/fragmentY" />
+    </fragment>
+    <action
+        android:id="@+id/Y_to_Main"
+        app:destination="@id/mainFragment"
+        app:popUpTo="@id/mainFragment"
+        app:popUpToInclusive="true" />
+
+</navigation>
